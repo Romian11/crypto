@@ -35,19 +35,30 @@
         <p class="selected">Wallet <i class="fa fa-credit-card" aria-hidden="true"></i></p>
         <div class="separator"></div>
        </div>
-
        <div class="user_wallet">
         <div class="info">
         <div class="currbalance">
             <p>Balance Available</p>
-           <div class="bal"> <span id="balance"><span id="dollar">$</span> 36000</span></div>
+           <div class="bal"><span id="dollar">$</span><span id="balance">0.00</span></div>
         </div>
         <div class="accounts">
-            <div class="invested"><span>Amount Invested</span> <span><span id="dollar2">$</span>15000</span></div>
-        <div class="starting_balance"><span>Starting Balance</span><span><span id="dollar2">$</span>14000</span></div>
+          
+            <div class="invested">
+              <span>Amount Invested</span> 
+             <span><span id="dollar2">$</span><span id="invest">0.00</span></span>
+              </div>
+
+        <div class="starting_balance">
+          <span>Starting Balance</span>
+             <span><span id="dollar2">$</span><span id="start_bal">0.00</span></span>
+          </div>
+
         </div>
         <div class="profit_loss">
-            <div class="starting_balance"><span>Profit/Loss</span> <span><span id="dollar2">$</span>15000</span></div>
+            <div class="starting_balance">
+              <span>Profit/Loss</span> 
+              <span><span id="dollar2">$</span><span id="profit_loss_">0.00</span></span>
+              </div>
         </div>
         </div>
         <div class="deposit_money">
@@ -55,25 +66,25 @@
             <div class="deposit">Deposit</div>
           <div class="deposit_amount">
             <span style="height: fit-content;">Enter Amount</span>
-            <span class="money">&nbsp; &nbsp;$&nbsp; &nbsp;<input type="number" name="deposit_amount" id="deposit_amount"></span>
+            <span class="money">&nbsp; &nbsp;$&nbsp; &nbsp;<input type="number" name="deposit_amount" id="deposit_input"></span>
             </div>
             <div class="addbtn">
-            {{!-- <button>+500</button>
-            <button>+1000</button>
-            <button>+5000</button> --}}
-<button class="button-18" role="button">+500</button>
-<button class="button-18" role="button">+1000</button>
-<button class="button-18" role="button">+5000</button>
+           
+              <button class="button-18" role="button" id="five" onclick="plus(500)">+500</button>
+              <button class="button-18" role="button" id="ten" onclick="plus(1000)">+1000</button>
+              <button class="button-18" role="button" id="fifty" onclick="plus(5000)">+5000</button>
 
             </div>
           </div>
            <div class="deposit_btn">
-            <button class="button-18" role="button">Deposit</button>
+            <button class="button-18" role="button" id="deposit">Deposit</button>
 
            </div>
         </div>
        </div>
     </div>
 </div>
+<script  src="/wallet/js/script.js"></script>
+<script  src="/wallet/js/script1.js" type="module"></script>
 </body>
 </html>

@@ -39,5 +39,8 @@ app.get("/details", (req, res) => {
 app.get("/wallet", (req, res) => {
   res.render("wallet.hbs");
 });
+app.get("/dashboard", (req, res) => {
+  res.render("dashboard.hbs");
+});
 
 app.listen(port);

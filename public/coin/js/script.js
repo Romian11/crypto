@@ -64,7 +64,7 @@ buybtn.addEventListener("click", (event) => {
         if (snapshot.exists()) {
           const userData = snapshot.val();
           const currBalance = userData.curr_balance;
-          const invested = userData.invested;
+          const invested = parseFloat(userData.invested);
        
          var qty = 0 ;      
          var avg_price = 0;
@@ -107,7 +107,7 @@ buybtn.addEventListener("click", (event) => {
                 
                 update(userRef, {
                   curr_balance: currBalance-amount,
-                  invested: invested+amount
+                  invested: invested+ parseFloat(amount)
                 })
                 .then(() => {
                   console.log("New holding added successfully!");
@@ -153,7 +153,7 @@ sellbtn.addEventListener("click", (event) => {
         if (snapshot.exists()) {
           const userData = snapshot.val();
           const currBalance = userData.curr_balance;
-          const invested = userData.invested;
+          const invested = parseFloat(userData.invested);
          
          var qty = 0 ;      
          var avg_price=0;
@@ -195,7 +195,7 @@ sellbtn.addEventListener("click", (event) => {
                 
                 update(userRef, {
                   curr_balance: currBalance+ z*amount,
-                  invested: invested-z*amount
+                  invested: invested-parseFloat(z*amount)
                 })
                 .then(() => {
                   console.log("New holding added successfully!");

@@ -24,29 +24,36 @@ i {
 .navbar-collapse {
   flex-grow: 0 !important;
 }
+
 .navbar-logo {
   padding: 15px;
   color: #fff;
 }
+
 .navbar-mainbg {
   background-color: #222222 ;
   padding: 0px;
 }
+
 #navbarSupportedContent {
   overflow: hidden;
   position: relative;
 }
+
 #navbarSupportedContent ul {
   padding: 0px;
   margin: 0px;
 }
+
 #navbarSupportedContent ul li a i {
   margin-right: 10px;
 }
+
 #navbarSupportedContent li {
   list-style-type: none;
   float: left;
 }
+
 #navbarSupportedContent ul li a {
   color: rgba(255, 255, 255, 0.5);
   text-decoration: none;
@@ -57,12 +64,14 @@ i {
   transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
   position: relative;
 }
+
 #navbarSupportedContent > ul > li.active > a {
   color: rgb(232, 219, 219);
   background-color: transparent;
   /* transform: scale(1.2); */
   transition: all 0.5s;
 }
+
 #navbarSupportedContent a:not(:only-child):after {
   content: "\f105";
   position: absolute;
@@ -76,9 +85,11 @@ i {
   font-weight: 900;
   transition: 0.5s;
 }
+
 #navbarSupportedContent .active > a:not(:only-child):after {
   transform: rotate(90deg);
 }
+
  .hori-selector {
   display: inline-block;
   position: absolute;
@@ -90,13 +101,12 @@ i {
   background-color: #dedac8;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-
   margin-top: 10px;
-
   border-radius: 40%;
   transform: scale(0.8);
   margin-bottom: 50px;
 }
+
 .hori-selector .right,
 .hori-selector .left {
   position: absolute;
@@ -106,7 +116,6 @@ i {
   bottom: 10px;
   
 }
-
 
 @media (min-width: 992px) {
   .navbar-expand-custom {

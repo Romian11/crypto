@@ -1,0 +1,102 @@
+<style>
+    .nav-item{
+        cursor: pointer;
+    }
+</style>
+<nav class="navbar navbar-expand-custom navbar-mainbg">
+    <div class="logo" >
+        <img src="/image/logo.png" alt="" srcset="">
+          <a class="navbar-brand navbar-logo" href="./../">CRYPTIC</a>
+    </div>
+      
+        <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars text-white"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                {{!-- <div class="hori-selector"><div class="left"></div><div class="right"></div></div> --}}
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0);"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                </li>
+                <li class="nav-item active" id="wallet_btn">
+                    <a class="nav-link" href="/wallet"><i class="fa fa-credit-card" aria-hidden="true"></i>Wallet</a>
+                </li>
+                <li class="nav-item"> 
+                    <a class="nav-link" href="javascript:void(0);"><i class="fa fa-graduation-cap" aria-hidden="true"></i>Learn</a>
+                </li>
+                <li class="nav-item" id="btn_login" style="display: none;">
+                    <a class="nav-link" href="/login" ><i class="fa fa-sign-in" aria-hidden="true"></i>Log In</a>
+                </li>
+                <li class="nav-item" id="btn_signup" style="display: none;">
+                    <a class="nav-link" href="/signup"><i class="fa fa-user" aria-hidden="true"></i>Signup</a>
+                </li>
+                <li class="nav-item" style="display: none;" id="logout_btn">
+                    <a class="nav-link" href="javascript:void(0);" onclick="log_out()" > <i class="fa fa-sign-out" aria-hidden="true" ></i>Log OUT</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <script>
+        const login_btn = document.getElementById("btn_signup");
+const signup_btn = document.getElementById("btn_login");
+
+
+const buttons_login = document.getElementsByClassName("buttons_login");
+
+var user = localStorage.getItem("login_info");
+
+const logout_btn = document.getElementById("logout_btn");
+
+
+function login() {
+  user = JSON.parse(user);
+  if (user == null) {
+    login_btn.style.display = "block";
+    signup_btn.style.display = "block";
+    redirectToLogin();
+  } else {
+    logout_btn.style.display = "block";
+  }
+  function redirectToLogin() {
+    console.log("Redirecting to login");
+    setTimeout(function () {
+      window.location.href = "./login";
+    }, 60000);
+  }
+}
+
+login();
+
+window.addEventListener("popstate", function (event) {
+  location.reload();
+});
+
+//logout------------------------------------------>
+logout_btn.addEventListener("click", () => {
+  localStorage.removeItem("login_info");
+
+  signup_btn.style.display = "block";
+  login_btn.style.display = "block";
+  logout_btn.style.display = "none";
+  location.reload();
+});
+signup_btn.addEventListener("click", () => {
+  window.location = "/signup";
+});
+
+login_btn.addEventListener("click", () => {
+  if (login_btn.innerHTML == "Log Out") {
+    localStorage.removeItem("login_info");
+    // location.reload();
+    login_btn.innerHTML = "Log In";
+    signup_btn.style.display = "block";
+  } else window.location = "/login";
+});
+
+
+function return_home() {
+  window.location.href = "/";
+}
+
+
+    </script>

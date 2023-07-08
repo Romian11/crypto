@@ -37,30 +37,28 @@
         </div>
     </nav>
     <script>
-        const login_btn = document.getElementById("btn_signup");
-const signup_btn = document.getElementById("btn_login");
+        const btn_login = document.getElementById("btn_signup");
+        const btn_signup = document.getElementById("btn_login");
 
-
-const buttons_login = document.getElementsByClassName("buttons_login");
 
 var user = localStorage.getItem("login_info");
 
-const logout_btn = document.getElementById("logout_btn");
+const btn_logout = document.getElementById("logout_btn");
 
 
 function login() {
   user = JSON.parse(user);
   if (user == null) {
-    login_btn.style.display = "block";
-    signup_btn.style.display = "block";
+    btn_login.style.display = "block";
+    btn_signup.style.display = "block";
     redirectToLogin();
   } else {
-    logout_btn.style.display = "block";
+    btn_logout.style.display = "block";
   }
   function redirectToLogin() {
     console.log("Redirecting to login");
     setTimeout(function () {
-      window.location.href = "./login";
+      window.location.href = "/login";
     }, 60000);
   }
 }
@@ -72,24 +70,24 @@ window.addEventListener("popstate", function (event) {
 });
 
 //logout------------------------------------------>
-logout_btn.addEventListener("click", () => {
+btn_logout.addEventListener("click", () => {
   localStorage.removeItem("login_info");
 
-  signup_btn.style.display = "block";
-  login_btn.style.display = "block";
-  logout_btn.style.display = "none";
+  btn_signup.style.display = "block";
+  btn_login.style.display = "block";
+  btn_logout.style.display = "none";
   location.reload();
 });
-signup_btn.addEventListener("click", () => {
+btn_signup.addEventListener("click", () => {
   window.location = "/signup";
 });
 
 login_btn.addEventListener("click", () => {
-  if (login_btn.innerHTML == "Log Out") {
+  if (btn_login.innerHTML == "Log Out") {
     localStorage.removeItem("login_info");
     // location.reload();
-    login_btn.innerHTML = "Log In";
-    signup_btn.style.display = "block";
+    btn_login.innerHTML = "Log In";
+    btn_signup.style.display = "block";
   } else window.location = "/login";
 });
 
@@ -97,6 +95,4 @@ login_btn.addEventListener("click", () => {
 function return_home() {
   window.location.href = "/";
 }
-
-
     </script>
